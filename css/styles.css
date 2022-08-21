@@ -13,6 +13,14 @@
     scroll-behavior: smooth;          I can use this code for scrolling the page
 }*/
 /* ---- Base Rules ---- */
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+
+}
 
 
 body {
@@ -74,7 +82,7 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
-   padding: 1%;
+   
     margin: 0;
     text-align: right;
 }
@@ -86,21 +94,24 @@ section {
 
 .navbar__menu .menu__link {
     display: inline-block;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding: 1.5em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
 }
 
 .navbar__menu .menu__link:hover {
-    background: rgb(12, 100, 151);
+    background-color: aqua;
+    border-radius: 10%;
     color: #fff;
     transition: ease 0.3s all;
 }
 
+.active {
+    background-color: aqua;
+    border-radius: 10%;
+    transition: ease 0.3s all;
+}
 /* Header Styles */
 .page__header {
     background: #fff;
@@ -233,4 +244,54 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+/* On screens that are 992px or less, Tablets View*/
+@media screen and (max-width: 992px) {
+    .main-hero {
+        min-height: 30vh;
+        padding-top: 3em;
+    }
+
+    h1 {
+        
+        font-size: 3em;
+        margin: 2em 1rem 1em;
+       
+    }
+    h2{
+        font-size: 3em;
+        padding-top: 3em;
+    }
+    .landing__container {
+        padding: 5em;
+        margin :30px;
+        
+    }
+
+}
+
+/* On screens that are 600px or less, Mobile View*/
+@media screen and (max-width: 600px) {
+    .main-hero {
+        min-height: 20vh;
+        padding-top: 3em;
+    }
+
+    h1 {
+
+       
+        font-size: 2.5em;
+        margin: 1em 1rem 1em;
+        padding-top: 65px;
+    }
+    h2{
+        font-size: 1em;
+        padding-top: 3em;
+        margin :30px;
+    }
+    .landing__container {
+        padding: .25em;
+        margin :30px;
+        
+    }
 }

@@ -27,6 +27,8 @@ const nav = document.getElementById('navbar__list');
 // sections global var
 const sec = document.querySelectorAll('section');
 
+
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -48,6 +50,7 @@ function navegationBuilder  ()  {
         nav.appendChild(items);
 
          //nav.insertAdjacentElement("beforeend",items);    (I can use it too)
+         
     };
 
 };
@@ -76,36 +79,30 @@ function viewActiveSection (part) {
 
 //implementating the actual function
 
+
+
 function addAndRemoveActiveClass  () {
-    for(part of sec) {
-        const elem = viewActiveSection(part);
+    const navItems = document.querySelectorAll('#navbar__list a');
+    navItems.forEach(item =>{
 
-        function view()
-         { return (elem < 150 && elem >= -150);};
+      if (! item.hash) return;
 
-if (! view())
-{
-    // I can use o  appear  this to show the back ground
+      let  section=document.querySelector(item.hash);
 
-    part.style.cssText = "background-color: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%)";
+      let position= window.scrollY+150;
 
-    part.classList.remove('your-active-class'); // remove active class whenwe continue scrolling
-    
-}
-else{
-    part.style.cssText = "background-color: #2A2A72"; // I can use o  appear  this to show the back ground
-    part.classList.add('your-active-class');  // add active class if it is viewed
-    
-}
-        
-       
-    };
-};
-
+      if (position>= section.offsetTop && position <= (section.offsetTop + section.offsetHeight))
+      {
+        item.classList.add('active');
+      }
+      else
+      {
+        item.classList.remove('active');
+      }
+    })
+ 
+};window.addEventListener('load' ,addAndRemoveActiveClass);
 window.addEventListener('scroll' ,addAndRemoveActiveClass);
-
-
-
 
 /**
  * End Main Functions
