@@ -13,7 +13,7 @@
     scroll-behavior: smooth;          I can use this code for scrolling the page
 }*/
 /* ---- Base Rules ---- */
-*{
+* {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -24,8 +24,8 @@
 
 
 body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    background: rgb(136, 203, 171);
+    background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
@@ -34,15 +34,15 @@ body {
 
 /* Typeography General*/
 h1 {
-    
+
     font-family: 'Fira Sans', sans-serif;
     font-size: 3em;
     margin: 2em 1rem;
 
-   
+
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
         margin: 4em 4rem 1em;
@@ -75,6 +75,7 @@ main {
 section {
     position: relative;
     min-height: 80vh;
+    padding-top: 5%;
 }
 
 
@@ -82,7 +83,7 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
-   
+
     margin: 0;
     text-align: right;
 }
@@ -93,12 +94,17 @@ section {
 }
 
 .navbar__menu .menu__link {
-    display: inline-block;
+    display: block;
     padding: 1.5em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
 }
+
+.navbar__menu .navbar_shrink {
+    display: none;
+}
+
 
 .navbar__menu .menu__link:hover {
     background-color: aqua;
@@ -107,11 +113,12 @@ section {
     transition: ease 0.3s all;
 }
 
-.active {
+.your-active-class {
     background-color: aqua;
-    border-radius: 10%;
+    border: 10%;
     transition: ease 0.3s all;
 }
+
 /* Header Styles */
 .page__header {
     background: #fff;
@@ -128,7 +135,7 @@ section {
     color: #fff;
 }
 
-.page__footer p{
+.page__footer p {
     color: #fff;
 }
 
@@ -140,17 +147,49 @@ section {
     text-align: left;
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     .landing__container {
         max-width: 50em;
         padding: 4em;
     }
 }
 
+@media screen and (max-width: 700px) {
+    .navbar__menu li:not(:nth-child(2)) {
+        display: none;
+    }
+
+    .navbar__menu li {
+        text-align: left;
+        float: left;
+    }
+
+    .navbar__menu .responsive li {
+        display: inline;
+        text-align: left;
+        float: none;
+    }
+
+    .navbar__menu li.navbar_shrink {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        float: right;
+    }
+
+}
+
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
-    text-align: right; 
+    text-align: right;
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
 }
 
 /* Background Circles */
@@ -170,8 +209,8 @@ section:nth-of-type(odd) .landing__container::before {
 
 section:nth-of-type(even) .landing__container::before {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
     position: absolute;
     top: 3em;
     right: 3em;
@@ -185,8 +224,8 @@ section:nth-of-type(even) .landing__container::before {
 
 section:nth-of-type(3n) .landing__container::after {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
     position: absolute;
     right: 0;
     bottom: 0;
@@ -200,8 +239,8 @@ section:nth-of-type(3n) .landing__container::after {
 
 section:nth-of-type(3n + 1) .landing__container::after {
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
     position: absolute;
     right: 20vw;
     bottom: -5em;
@@ -234,17 +273,15 @@ section.your-active-class .landing__container::after {
 
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
-	from {
-		transform: rotate(0deg)
-		           translate(-1em)
-		           rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg)
-		           translate(-1em) 
-		           rotate(-360deg);
-	}
+    from {
+        transform: rotate(0deg) translate(-1em) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translate(-1em) rotate(-360deg);
+    }
 }
+
 /* On screens that are 992px or less, Tablets View*/
 @media screen and (max-width: 992px) {
     .main-hero {
@@ -253,19 +290,21 @@ section.your-active-class .landing__container::after {
     }
 
     h1 {
-        
+
         font-size: 3em;
         margin: 2em 1rem 1em;
-       
+
     }
-    h2{
+
+    h2 {
         font-size: 3em;
         padding-top: 3em;
     }
+
     .landing__container {
         padding: 5em;
-        margin :30px;
-        
+        margin: 30px;
+
     }
 
 }
@@ -279,19 +318,21 @@ section.your-active-class .landing__container::after {
 
     h1 {
 
-       
-        font-size: 2.5em;
+
+        font-size: 3em;
         margin: 1em 1rem 1em;
         padding-top: 65px;
     }
-    h2{
-        font-size: 1em;
+
+    h2 {
+        font-size: 3em;
         padding-top: 3em;
-        margin :30px;
+        margin: 30px;
     }
+
     .landing__container {
         padding: .25em;
-        margin :30px;
-        
+        margin: 30px;
+
     }
 }
