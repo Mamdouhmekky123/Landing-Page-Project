@@ -154,8 +154,9 @@ section {
     }
 }
 
+/**controling shrinking**/
 @media screen and (max-width: 700px) {
-    .navbar__menu li:not(:nth-child(2)) {
+    .navbar__menu li:not(:nth-child(1)) {
         display: none;
     }
 
@@ -164,19 +165,23 @@ section {
         float: left;
     }
 
-    .navbar__menu .responsive li {
-        display: inline;
-        text-align: left;
-        float: none;
-    }
-
     .navbar__menu li.navbar_shrink {
         position: absolute;
         top: 0;
         right: 0;
         display: block;
         float: right;
+
     }
+
+    .navbar__menu .responsive li {
+        display: inline;
+        text-align: left;
+        float: none;
+        text-align: center;
+    }
+
+
 
 }
 
@@ -334,5 +339,11 @@ section.your-active-class .landing__container::after {
         padding: .25em;
         margin: 30px;
 
+    }
+
+
+
+    .navbar__menu .menu__link:hover {
+        border-radius: 0%;
     }
 }
